@@ -8,5 +8,6 @@ namespace ExamApp.DataAccess
 {
     public class Class1
     {
+        public string FirstName { get; set; }
     }
 }
