@@ -63,6 +63,7 @@
     <Compile Include="Content.cs">
       <DependentUpon>ExamAppModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAL\IGroupRepository .cs" />
     <Compile Include="ExamAppModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -117,7 +118,9 @@
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="ExamAppModel.edmx.diagram">
       <DependentUpon>ExamAppModel.edmx</DependentUpon>
     </None>

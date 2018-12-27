@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ExamApp.Business;
+using ExamApp.DataAccess;
 
 namespace ExamApp.UI
 {
@@ -23,6 +25,17 @@ namespace ExamApp.UI
         public MainWindow()
         {
             InitializeComponent();
+        }
+       
+
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        {
+            GroupManager.AddGroup(new GroupMaster() { GroupName = txtName.Text, GroupDesc = txtDesc.Text, CreatedBy = 100 });
+        }
+
+        private void BtnFind_Click(object sender, RoutedEventArgs e)
+        {
+            GroupMaster group = GroupManager.FindGroup(Convert.ToInt32(txtGroupID.Text));
         }
     }
 }
