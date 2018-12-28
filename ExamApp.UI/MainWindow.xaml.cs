@@ -22,6 +22,7 @@ namespace ExamApp.UI
     /// </summary>
     public partial class MainWindow : Window
     {
+        GroupManager  groupManager = new GroupManager();
         public MainWindow()
         {
             InitializeComponent();
@@ -30,12 +31,14 @@ namespace ExamApp.UI
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            GroupManager.AddGroup(new GroupMaster() { GroupName = txtName.Text, GroupDesc = txtDesc.Text, CreatedBy = 100 });
+            groupManager.AddGroup(new GroupMaster() { GroupName = txtName.Text, GroupDesc = txtDesc.Text, CreatedBy = 100 });
         }
 
         private void BtnFind_Click(object sender, RoutedEventArgs e)
         {
-            GroupMaster group = GroupManager.FindGroup(Convert.ToInt32(txtGroupID.Text));
+            GroupMaster group = groupManager.FindGroup(Convert.ToInt32(txtGroupID.Text));
+            txtName.Text = group.GroupName;
+            txtDesc.Text = group.GroupDesc;
         }
     }
 }

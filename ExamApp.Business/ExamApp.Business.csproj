@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GenRepository\GenericRepository.cs" />
+    <Compile Include="GenRepository\UnitOfWork.cs" />
     <Compile Include="GroupManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
