@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using ExamApp.DataAccess;
 using ExamApp.DataAccess.DAL;
+using Microsoft.Practices.Unity;
+
 
 namespace ExamApp.Business.GenRepository
 {
@@ -16,6 +18,12 @@ namespace ExamApp.Business.GenRepository
         private GenericRepository<GroupMaster> groupRepository;
         private GenericRepository<SubGroupMaster> subGroupRepository;
         //Add other repositories here and make properties like below
+        IUnityContainer unityContainer;
+
+        public UnitOfWork(IUnityContainer _unityContainer)
+        {
+
+        }
 
         public GenericRepository<GroupMaster> GroupRepository
         {
