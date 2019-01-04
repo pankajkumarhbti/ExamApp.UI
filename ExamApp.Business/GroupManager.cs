@@ -6,13 +6,20 @@ using System.Threading.Tasks;
 using ExamApp.Business.GenRepository;
 using ExamApp.DataAccess;
 using ExamApp.DataAccess.DAL;
+using Microsoft.Practices.Unity;
 
 namespace ExamApp.Business
 {
     
     public class GroupManager
     {
-        private UnitOfWork unitOfWork = new UnitOfWork();
+        IUnityContainer container = new UnityContainer();
+        //private UnitOfWork unitOfWork = new UnitOfWork();
+        private UnitOfWork unitOfWork;
+        public GroupManager()
+        {
+            unitOfWork = container.Resolve<UnitOfWork>();
+        }
         public  bool AddGroup(GroupMaster group)
         {
             try
@@ -46,21 +53,24 @@ namespace ExamApp.Business
             }            
         }
     }
-    /*
-    public string result = string.Empty;
-    dynamic order = new Order().Customer;
-    public void Func(Order order)
+    public class TestClass
     {
-        var xys = order?.Customer?.Name;
+        public string result = string.Empty;
+        dynamic order = new Order().Customer;
+        public void Func(Order order)
+        {
+            var xys = order?.Customer?.Name;
+        }
     }
     public class Order
-    {
-        public Customer Customer { get; set; }
-    }
+        {
+            public Customer Customer { get; set; }
+        }
 
-    public class Customer
-    {
-        public string Name { get; set; }
-    }
-    */
+        public class Customer
+        {
+            public string Name { get; set; }
+        }
+  
+
 }

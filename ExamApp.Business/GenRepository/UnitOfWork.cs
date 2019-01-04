@@ -18,12 +18,12 @@ namespace ExamApp.Business.GenRepository
         private GenericRepository<GroupMaster> groupRepository;
         private GenericRepository<SubGroupMaster> subGroupRepository;
         //Add other repositories here and make properties like below
-        IUnityContainer unityContainer;
+        IUnityContainer unityContainer=new UnityContainer();
 
-        public UnitOfWork(IUnityContainer _unityContainer)
-        {
-
-        }
+        //public UnitOfWork(IUnityContainer _unityContainer)
+        //{
+        //    unityContainer = _unityContainer;
+        //}
 
         public GenericRepository<GroupMaster> GroupRepository
         {
@@ -32,7 +32,7 @@ namespace ExamApp.Business.GenRepository
 
                 if (this.groupRepository == null)
                 {
-                    this.groupRepository = new GenericRepository<GroupMaster>(context);
+                    this.groupRepository = unityContainer.Resolve<GenericRepository<GroupMaster>>();//new GenericRepository<GroupMaster>(context);
                 }
                 return groupRepository;
             }

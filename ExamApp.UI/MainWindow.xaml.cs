@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ExamApp.Business;
 using ExamApp.DataAccess;
+using Microsoft.Practices.Unity;
 
 namespace ExamApp.UI
 {
@@ -22,10 +23,14 @@ namespace ExamApp.UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        GroupManager  groupManager = new GroupManager();
+        IUnityContainer container = new UnityContainer();
+        GroupManager groupManager;
+        //GroupManager  groupManager = new GroupManager();
+        
         public MainWindow()
         {
             InitializeComponent();
+            groupManager = container.Resolve<GroupManager>();            
         }
        
 
@@ -37,8 +42,9 @@ namespace ExamApp.UI
         private void BtnFind_Click(object sender, RoutedEventArgs e)
         {
             GroupMaster group = groupManager.FindGroup(Convert.ToInt32(txtGroupID.Text));
-            txtName.Text = group.GroupName;
-            txtDesc.Text = group.GroupDesc;
+            txtName.Text = group?.GroupName;
+            txtDesc.Text = group?.GroupDesc;
         }
     }
+
 }
