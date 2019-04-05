@@ -32,7 +32,9 @@
             </Grid.RowDefinitions>
             <TextBlock Name="GroupName" Text="Group Name" Grid.Column="0" Grid.Row="0" VerticalAlignment="Center"></TextBlock>
             <TextBlock Name="GroupDesc" Text="Group Desc" Grid.Column="0" Grid.Row="1" VerticalAlignment="Center"></TextBlock>
-            <TextBox Name="txtName"  Grid.Column="1" Grid.Row="0" VerticalAlignment="Center"></TextBox>
+            <TextBox Name="txtName"  Grid.Column="1" Grid.Row="0" VerticalAlignment="Center">
+                
+            </TextBox>
             <TextBox Name="txtDesc"  Grid.Column="1" Grid.Row="1" VerticalAlignment="Center"></TextBox>
             <Button Grid.Column="1" Grid.Row="3" Width="100px" Height="30px" Name="BtnSave" Click="BtnSave_Click" >Save</Button>
             <Button Grid.Column="1" Grid.Row="3" Width="100px" Height="30px" Name="BtnFind" Click="BtnFind_Click" Margin="258,25,-157,26">Find</Button>
